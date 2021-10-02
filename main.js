@@ -1,12 +1,8 @@
-import { collection, getDocs } from "firebase/firestore/lite";
 import { initFirestore } from "./Helpers/initFirestore.js";
 import { signInToFirebase } from "./Helpers/signInToFirebase.js";
+import { getCompanies } from "./Helpers/getCompanies.js";
 
 const db = initFirestore();
 await signInToFirebase();
-
-const companies = await collection(db, "company");
-const companySnapshot = await getDocs(companies);
-const companyList = companySnapshot.docs.map((doc) => doc.data());
-
+const companyList = await getCompanies(db);
 console.log(companyList);
