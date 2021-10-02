@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "mypc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakbar0/MYPC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hakbar0/MYPC/issues"
+  },
+  "homepage": "https://github.com/hakbar0/MYPC#readme",
+  "dependencies": {
+    "firebase": "^9.1.1"
+  }
+}
