@@ -2,12 +2,12 @@ import { ref, onChildAdded, limitToLast, query } from "firebase/database";
 import { assignSolicitors } from "../Firestore/assignSolicitors.js";
 
 //checks for purchase
-export const lastP = async (dbRT) => {
+export const lastP = async (dbRT, dbFS) => {
   const pRef = query(ref(dbRT, "purchase/"), limitToLast(1));
   onChildAdded(pRef, (snap) => {
     const data = snap.val();
-    if (data.sent !== "true") {
-      assignSolicitors(data);
+    if (!data.sent !== true) {
+      assignSolicitors(data, dbFS);
     }
   });
 };

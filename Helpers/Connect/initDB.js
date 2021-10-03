@@ -1,5 +1,5 @@
 import { firebaseConfig } from "../../Config/config.js";
-import { getFirestore } from "firebase/firestore/lite";
+import { getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 

@@ -1,13 +1,13 @@
 import { doc, setDoc } from "firebase/firestore/lite";
 
-export const pushCompany = async (db) => {
+export const pushCompany = async (db, shortName) => {
   const company = {
     setup: new Date().toLocaleDateString(),
     contact: {
       website: "mypropertyconveyancer.co.uk",
       location: "Manchester",
       email: "test@hotmail.com",
-      shortName: "legalseat",
+      shortName,
       logo: "mypropertyconveyancer.co.uk",
     },
     monthlyLimit: { currentMonth: 0, limit: 30 },
@@ -24,15 +24,14 @@ export const pushCompany = async (db) => {
       fixedFees: { ttFee: 1, mortgageFee: 3, leaseholdFee: 2 },
     },
     regions: {
-      westMidlands: { covered: true, state: true },
-      yorkshireAndTheHumber: { covered: true, state: true },
-      northEast: { covered: true, state: true },
-      eastOfEngland: { covered: true, state: true },
-      southEast: { state: true, covered: true },
-      northWest: { covered: true, state: true },
-      london: { covered: true, state: true },
-      southWest: { state: true, covered: true },
-      eastMidlands: { covered: true, state: true },
+      "East Midlands": { covered: true, state: true },
+      London: { covered: true, state: true },
+      "North East": { covered: true, state: true },
+      "North West": { covered: true, state: true },
+      "South East": { state: true, covered: true },
+      "South West": { covered: true, state: true },
+      "West Midlands": { covered: true, state: true },
+      "Yorkshire and the Humber": { covered: true, state: true },
     },
     active: true,
     remortgage: {
