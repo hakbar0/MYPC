@@ -7,7 +7,7 @@ export const pushCompany = async (db) => {
       website: "mypropertyconveyancer.co.uk",
       location: "Manchester",
       email: "test@hotmail.com",
-      shortName: "lawfroft",
+      shortName: "legalseat",
       logo: "mypropertyconveyancer.co.uk",
     },
     monthlyLimit: { currentMonth: 0, limit: 30 },
