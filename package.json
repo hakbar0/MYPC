@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/hakbar0/MYPC#readme",
   "dependencies": {
-    "firebase": "^9.1.1"
+    "firebase": "^9.1.1",
+    "node-fetch": "^3.0.0"
   }
 }
