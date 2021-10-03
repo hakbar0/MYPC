@@ -1,4 +1,5 @@
 import { ref, onChildAdded, limitToLast, query } from "firebase/database";
+import { assignSolicitors } from "../Firestore/assignSolicitors.js";
 
 //checks for purchase
 export const lastP = async (dbRT) => {
@@ -6,7 +7,7 @@ export const lastP = async (dbRT) => {
   onChildAdded(pRef, (snap) => {
     const data = snap.val();
     if (data.sent !== "true") {
-      console.log(data);
+      assignSolicitors(data);
     }
   });
 };
