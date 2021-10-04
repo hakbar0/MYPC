@@ -6,8 +6,8 @@ export const lastP = async (dbRT, dbFS) => {
   const pRef = query(ref(dbRT, "purchase/"), limitToLast(1));
   onChildAdded(pRef, (snap) => {
     const data = snap.val();
-    if (!data.sent !== true) {
-      assignSolicitors(data, dbFS);
+    if (data.sent !== true) {
+      return assignSolicitors(data, dbFS);
     }
   });
 };

@@ -1,4 +1,4 @@
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, limit } from "firebase/firestore";
 
 export const getCompanies = async (db) => {
   const companies = await collection(db, "company");
@@ -8,14 +8,16 @@ export const getCompanies = async (db) => {
 };
 
 export const companyByRegion = async (region, db) => {
+  let docs = [];
   const q = query(
     collection(db, "company"),
     where(`regions.${region}.covered`, "==", true),
-    where(`regions.${region}.state`, "==", false)
+    where(`regions.${region}.state`, "==", false),
+    limit(4)
   );
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data().contact.shortName);
+    docs.push(doc.data());
   });
+  return docs;
 };
