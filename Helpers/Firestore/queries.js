@@ -1,4 +1,12 @@
-import { collection, query, where, getDocs, limit } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  limit,
+  doc,
+  setDoc,
+} from "firebase/firestore";
 
 export const getCompanies = async (db) => {
   const companies = await collection(db, "company");
@@ -20,4 +28,9 @@ export const companyByRegion = async (region, db) => {
     docs.push(doc.data());
   });
   return docs;
+};
+
+export const updateCompany = async (db, region, name) => {
+  const compRef = doc(db, "company", name);
+  setDoc(compRef, { regions: { [region]: { state: true } } }, { merge: true });
 };
