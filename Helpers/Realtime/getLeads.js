@@ -1,14 +1,17 @@
 import { ref, onChildAdded, limitToLast, query } from "firebase/database";
 import { assignSolicitors } from "../Firestore/assignSolicitors.js";
+import { buyQuote } from "../Quotes/buyQuote.js";
 
 //checks for purchase
 export const lastP = async (dbRT, dbFS) => {
   const pRef = query(ref(dbRT, "purchase/"), limitToLast(1));
   onChildAdded(pRef, (snap) => {
-    const data = snap.val();
-    if (data.sent !== true) {
-      assignSolicitors(data, dbFS).then((sols) => {
-        sols.forEach((el) => console.log(el.contact.shortName));
+    const client = snap.val();
+    if (client.sent !== true) {
+      assignSolicitors(client, dbFS).then((sols) => {
+        sols.forEach((sol) => {
+          console.log(buyQuote(sol, client));
+        });
       });
     }
   });
