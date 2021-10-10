@@ -7,7 +7,6 @@ import {
   doc,
   setDoc,
   increment,
-  orderBy,
 } from "firebase/firestore";
 
 export const getCompanies = async (db) => {
@@ -39,12 +38,11 @@ export const updateCompany = async (db, region, name, state) => {
 
 export const getSentCompanies = async (region, db, lim) => {
   let docs = [];
-  let lims = 4 - lim;
   const q = query(
     collection(db, "company"),
     where(`regions.${region}.covered`, "==", true),
     where(`regions.${region}.state`, "==", true),
-    limit(lims)
+    limit(4 - lim)
   );
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
