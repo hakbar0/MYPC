@@ -30,7 +30,36 @@ export const companyByRegion = async (region, db) => {
   return docs;
 };
 
-export const updateCompany = async (db, region, name) => {
+export const updateCompany = async (db, region, name, state) => {
   const compRef = doc(db, "company", name);
-  setDoc(compRef, { regions: { [region]: { state: true } } }, { merge: true });
+  setDoc(compRef, { regions: { [region]: { state } } }, { merge: true });
+};
+
+export const getSentCompanies = async (region, db, lim) => {
+  let docs = [];
+  let lims = 4 - lim;
+  const q = query(
+    collection(db, "company"),
+    where(`regions.${region}.covered`, "==", true),
+    where(`regions.${region}.state`, "==", true),
+    limit(lims)
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    docs.push(doc.data());
+  });
+  return docs;
+};
+
+export const coverByRegion = async (region, db) => {
+  let docs = [];
+  const q = query(
+    collection(db, "company"),
+    where(`regions.${region}.covered`, "==", true)
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    docs.push(doc.data());
+  });
+  return docs;
 };
