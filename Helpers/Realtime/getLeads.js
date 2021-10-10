@@ -7,7 +7,9 @@ export const lastP = async (dbRT, dbFS) => {
   onChildAdded(pRef, (snap) => {
     const data = snap.val();
     if (data.sent !== true) {
-      return assignSolicitors(data, dbFS);
+      assignSolicitors(data, dbFS).then((sols) => {
+        sols.forEach((el) => console.log(el.contact.shortName));
+      });
     }
   });
 };

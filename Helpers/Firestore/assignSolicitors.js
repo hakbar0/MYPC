@@ -29,5 +29,7 @@ export const assignSolicitors = async (client, db) => {
       updateCompany(db, region, el.contact.shortName, true);
       updateCompanyCount(db, el.contact.shortName);
     });
+
+    return sols;
   }
 };
