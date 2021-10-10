@@ -4,6 +4,7 @@ import {
   updateCompany,
   getSentCompanies,
   coverByRegion,
+  updateCompanyCount,
 } from "./queries.js";
 
 export const assignSolicitors = async (client, db) => {
@@ -26,6 +27,7 @@ export const assignSolicitors = async (client, db) => {
 
     sols.forEach((el) => {
       updateCompany(db, region, el.contact.shortName, true);
+      updateCompanyCount(db, el.contact.shortName);
     });
   }
 };

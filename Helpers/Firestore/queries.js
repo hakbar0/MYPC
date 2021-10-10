@@ -6,6 +6,8 @@ import {
   limit,
   doc,
   setDoc,
+  increment,
+  orderBy,
 } from "firebase/firestore";
 
 export const getCompanies = async (db) => {
@@ -62,4 +64,13 @@ export const coverByRegion = async (region, db) => {
     docs.push(doc.data());
   });
   return docs;
+};
+
+export const updateCompanyCount = async (db, name) => {
+  const compRef = doc(db, "company", name);
+  setDoc(
+    compRef,
+    { monthlyLimit: { currentMonth: increment(1) } },
+    { merge: true }
+  );
 };

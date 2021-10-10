@@ -1,4 +1,4 @@
-import { doc, setDoc } from "firebase/firestore/lite";
+import { doc, setDoc } from "firebase/firestore";
 
 export const pushCompany = async (db, shortName) => {
   const company = {
@@ -85,6 +85,5 @@ export const pushCompany = async (db, shortName) => {
       },
     },
   };
-
   await setDoc(doc(db, "company", company.contact.shortName), company);
 };
