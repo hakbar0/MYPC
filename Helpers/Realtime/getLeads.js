@@ -9,6 +9,7 @@ export const lastP = async (dbRT, dbFS) => {
     const client = snap.val();
     if (client.sent !== true) {
       assignSolicitors(client, dbFS).then((sols) => {
+        //sets legal fees
         sols.map((sol) => {
           sol.legalFees = buyQuote(sol, client);
         });
