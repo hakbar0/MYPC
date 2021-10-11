@@ -1,4 +1,5 @@
 import { ref, onChildAdded, limitToLast, query } from "firebase/database";
+import { whatsApp } from "../Intergrations/whatsApp.js";
 import { assignSolicitors } from "../Firestore/assignSolicitors.js";
 import { buyQuote } from "../Quotes/buyQuote.js";
 
@@ -12,6 +13,16 @@ export const lastP = async (dbRT, dbFS) => {
         //sets legal fees
         sols.map((sol) => {
           sol.legalFees = buyQuote(sol, client);
+        });
+        sols.forEach((sol) => {
+          if (sol.integrations.whatsapp) {
+            whatsApp(
+              client,
+              sol.legalFees,
+              sol.whatsApp.numbers,
+              sol.contact.shortName
+            );
+          }
         });
       });
     }

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/hakbar0/MYPC#readme",
   "dependencies": {
     "firebase": "^9.1.1",
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^3.0.0",
+    "twilio": "^3.69.0"
   }
 }

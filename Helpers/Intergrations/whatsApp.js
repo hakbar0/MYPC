@@ -1,14 +1,13 @@
-import { Config } from "../../Config/config.js";
+import { whatsAppCred } from "../../Config/config.js";
 
 import Twilio from "twilio";
 
 export const whatsApp = async (cl, lFees, cNum, shortName) => {
-  const { accountSid, authToken, number, msid } = Config.WhatsApp;
+  const { accountSid, authToken, number, msid } = whatsAppCred;
   const client = Twilio(accountSid, authToken);
 
   const {
     bFirstTimeBuyer,
-    bLeaseholdOrFreehold,
     bLeaseholdOrFreehold,
     bMortgage,
     bNewBuildProperty,
@@ -41,13 +40,13 @@ export const whatsApp = async (cl, lFees, cNum, shortName) => {
 
   const subtTotalLegalFee = totalLegalFee.toFixed(2);
   const disb = disbursement.toFixed(2);
-  const totalPrice = totalPrice.toFixed(2);
+  const tPrice = totalPrice.toFixed(2);
   const wVAT = vat.toFixed(2);
 
   const firstTimeBuyer = bFirstTimeBuyer == "true" ? "Yes" : "No";
-  const leasehold = bLeaseholdOrFreehold == "Leasehold" ? "Yes" : "No";
-  const freehold = bLeaseholdOrFreehold != "Leasehold" ? "Yes" : "No";
-  const mortgage = bMortgage == "true" ? "Yes" : "No";
+  const lhold = bLeaseholdOrFreehold == "Leasehold" ? "Yes" : "No";
+  const fhold = bLeaseholdOrFreehold != "Leasehold" ? "Yes" : "No";
+  const mgage = bMortgage == "true" ? "Yes" : "No";
   const newbuild = bNewBuildProperty == "true" ? "Yes" : "No";
   const secondOrInvestment = bSecondOrInvestment == "true" ? "Yes" : "No";
 
@@ -58,7 +57,7 @@ export const whatsApp = async (cl, lFees, cNum, shortName) => {
       .replace(
         /\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,
         ","
-      )}\nFirst Time Buyer: ${firstTimeBuyer} \nLeasehold: ${leasehold} \nFreehold: ${freehold} \nMortgage: ${mortgage} \nNew Build: ${newbuild} \nSecond or Investment: ${secondOrInvestment} \n\nFees\nLegal Fee: £${legalFee.toFixed(
+      )}\nFirst Time Buyer: ${firstTimeBuyer} \nLeasehold: ${lhold} \nFreehold: ${fhold} \nMortgage: ${mgage} \nNew Build: ${newbuild} \nSecond or Investment: ${secondOrInvestment} \n\nFees\nLegal Fee: £${legalFee.toFixed(
       2
     )}\nLeasehold Fee: £${leasehold.toFixed(
       2
@@ -75,17 +74,15 @@ export const whatsApp = async (cl, lFees, cNum, shortName) => {
       2
     )}\nSearch Pack: £${searchPack.toFixed(
       2
-    )}\nSubtotal: £${disbursement}\n\nTotal: £${totalPrice}\n\n` +
+    )}\nSubtotal: £${disb}\n\nTotal: £${tPrice}\n\n` +
     `Kind Regards,\nMy Property Conveyancer`;
 
-  if (companyNumber.active) {
-    companyNumber.numbers.forEach((tel) => {
-      await client.messages.create({
-        body: template,
-        from: number,
-        messagingServiceSid: msid,
-        to: "whatsapp:" + cNum,
-      });
+  cNum.map(async (tel) => {
+    await client.messages.create({
+      body: template,
+      from: number,
+      messagingServiceSid: msid,
+      to: "whatsapp:" + tel,
     });
-  }
+  });
 };
