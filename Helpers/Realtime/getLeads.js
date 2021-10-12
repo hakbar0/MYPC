@@ -3,6 +3,9 @@ import { whatsApp } from "../Intergrations/whatsApp.js";
 import { assignSolicitors } from "../Firestore/assignSolicitors.js";
 import { buyQuote } from "../Quotes/buyQuote.js";
 import { purchaseTemplate } from "../WhatsAppTemplates/purchaseTemplate.js";
+import { pEmailTemplate } from "../Email/purchase.js";
+import { companyET } from "../EmailTemplates/companyET.js";
+import { sendMail } from "../Email/sendMail.js";
 
 //checks for purchase
 export const lastP = async (dbRT, dbFS) => {
@@ -12,10 +15,19 @@ export const lastP = async (dbRT, dbFS) => {
     if (client.sent !== true) {
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
-        sols.map((sol) => {
-          sol.legalFees = buyQuote(sol, client);
-        });
+        // sort by legal fees
+        sols
+          .map((sol) => {
+            sol.legalFees = buyQuote(sol, client);
+          })
+          .sort((a, b) => {
+            return a.legalFees.totalPrice - b.legalFees.totalPrice;
+          });
+
         sols.forEach((sol) => {
+          // send email to company
+          const ET = companyET(client, sol.contact.shortName, sol.legalFees);
+          sendMail(sol, client, ET);
           // sends whatsapp
           if (sol.integrations.whatsapp) {
             purchaseTemplate(client, sol.legalFees, sol.contact.shortName).then(
@@ -25,6 +37,7 @@ export const lastP = async (dbRT, dbFS) => {
             );
           }
         });
+        // send email templates
       });
     }
   });
