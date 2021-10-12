@@ -2,6 +2,7 @@ import { ref, onChildAdded, limitToLast, query } from "firebase/database";
 import { whatsApp } from "../Intergrations/whatsApp.js";
 import { assignSolicitors } from "../Firestore/assignSolicitors.js";
 import { buyQuote } from "../Quotes/buyQuote.js";
+import { purchaseTemplate } from "../WhatsAppTemplates/purchaseTemplate.js";
 
 //checks for purchase
 export const lastP = async (dbRT, dbFS) => {
@@ -15,12 +16,12 @@ export const lastP = async (dbRT, dbFS) => {
           sol.legalFees = buyQuote(sol, client);
         });
         sols.forEach((sol) => {
+          // sends whatsapp
           if (sol.integrations.whatsapp) {
-            whatsApp(
-              client,
-              sol.legalFees,
-              sol.whatsApp.numbers,
-              sol.contact.shortName
+            purchaseTemplate(client, sol.legalFees, sol.contact.shortName).then(
+              (template) => {
+                whatsApp(template, sol.whatsApp.numbers);
+              }
             );
           }
         });
