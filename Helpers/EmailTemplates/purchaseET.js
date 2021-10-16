@@ -63,7 +63,9 @@ export const emailTemplate = (
                         <td align="center" style="font-size:54px; margin:0px auto;font-weight:600;color:#252525;">Instruct a solicitor</td>
                       </tr>
                       <tr>
-                        <td align="center" style="font-size:48px;line-height:60px;font-weight:600;color:#252525;">from <b style="font-size: 68px; color: #ED008C;">£${lowPrice}</b><img style="display:inline-block;" width="42" height="48" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f7181cc0d482e0fdb2c7323_hero_arrow.png" alt="arrow"/></td>
+                        <td align="center" style="font-size:48px;line-height:60px;font-weight:600;color:#252525;">from <b style="font-size: 68px; color: #ED008C;">£${lowPrice.toFixed(
+                          2
+                        )}</b><img style="display:inline-block;" width="42" height="48" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f7181cc0d482e0fdb2c7323_hero_arrow.png" alt="arrow"/></td>
                       </tr>
                       <tr>
                         <td align="center" style="background-color:#CFD1EF;padding:10px;"></td>
@@ -261,20 +263,27 @@ export const emailTemplate = (
                                       <table bgcolor="#CFD1EF" valign="top" align="center" border="0" cellpadding="0" cellspacing="0" width="250" style="border-collapse:collapse">
                                         <tr>
                                           <td width="55">
-                                            <img width="55" height="55" style="display:block" border="0" src="${company[0].contact.logo}" alt=""/>
+                                            <img width="55" height="55" style="display:block" border="0" src="${
+                                              company[0].contact.logo
+                                            }" alt=""/>
                                           </td>
                                           <td width="15"></td>
                                           <td>
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse:collapse">
                                               <tr>
-                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[0].contact.shortName}</td>
+                                                <td style="font-size:14px;color:#252525;font-weight:700;">${
+                                                  company[0].contact.shortName
+                                                }</td>
                                               </tr>
                                               <tr>
                                                 <td>
                                                   <table border="0" cellpadding="2" cellspacing="0" width="170" style="border-collapse:collapse">
                                                     <tr>
                                                       <td><img style="display:block" border="0" width="10" height="15" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f71b4d53e9d5de86c924e38_icon_location.png" alt=""/></td>
-                                                      <td style="font-size: 12px;color:#33348E;white-space:nowrap;">${company[0].contact.location}</td>
+                                                      <td style="font-size: 12px;color:#33348E;white-space:nowrap;">${
+                                                        company[0].contact
+                                                          .location
+                                                      }</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -323,7 +332,9 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[0].legalFees.legalFee}</td>
+                                                      <td align="center">£ ${company[0].legalFees.legalFee.toFixed(
+                                                        2
+                                                      )}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -357,7 +368,9 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[0].legalFees.disbursement}</td>
+                                                      <td align="center">£ ${company[0].legalFees.disbursement.toFixed(
+                                                        2
+                                                      )}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -387,7 +400,9 @@ export const emailTemplate = (
                                           <td align="center" style="font-size:14px;color:#252525;">Total Price</td>
                                         </tr>
                                         <tr>
-                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[0].legalFees.totalPrice}</td>
+                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[0].legalFees.totalPrice.toFixed(
+                                            2
+                                          )}</td>
                                         </tr>
                                       </table>
                                     </td>
@@ -401,7 +416,9 @@ export const emailTemplate = (
                                         <tr>
                                           <td align="center">
                                             <div style="display:block;background-color:#33338D;border:16px solid #33338D;font-size:15px;color:#FFFFFF;text-decoration:none;">
-                                              <a href="${company[0].contact.website}" style="font-size:15px; color:#FFFFFF; text-decoration:none;">Instruct Solicitor Now</a>
+                                              <a href="${
+                                                company[0].contact.website
+                                              }" style="font-size:15px; color:#FFFFFF; text-decoration:none;">Instruct Solicitor Now</a>
                                             </div>
                                           </td>
                                         </tr>
@@ -439,20 +456,27 @@ export const emailTemplate = (
                                       <table bgcolor="#CFD1EF" valign="top" align="center" border="0" cellpadding="0" cellspacing="0" width="250" style="border-collapse:collapse">
                                         <tr>
                                           <td width="55">
-                                            <img width="55" height="55" style="display:block" border="0" src="${company[1].contact.logo}" alt=""/>
+                                            <img width="55" height="55" style="display:block" border="0" src="${
+                                              company[1].contact.logo
+                                            }" alt=""/>
                                           </td>
                                           <td width="15"></td>
                                           <td>
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse:collapse">
                                               <tr>
-                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[1].contact.shortName}</td>
+                                                <td style="font-size:14px;color:#252525;font-weight:700;">${
+                                                  company[1].contact.shortName
+                                                }</td>
                                               </tr>
                                               <tr>
                                                 <td>
                                                   <table border="0" cellpadding="2" cellspacing="0" width="170" style="border-collapse:collapse">
                                                     <tr>
                                                       <td><img style="display:block" border="0" width="10" height="15" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f71b4d53e9d5de86c924e38_icon_location.png" alt=""/></td>
-                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[1].contact.location}</td>
+                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${
+                                                        company[1].contact
+                                                          .location
+                                                      }</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -501,7 +525,9 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[1].legalFees.legalFee}</td>
+                                                      <td align="center">£ ${company[1].legalFees.legalFee.toFixed(
+                                                        2
+                                                      )}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -535,7 +561,9 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[1].legalFees.disbursement}</td>
+                                                      <td align="center">£ ${company[1].legalFees.disbursement.toFixed(
+                                                        2
+                                                      )}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -565,7 +593,9 @@ export const emailTemplate = (
                                           <td align="center" style="font-size:14px;color:#252525;">Total Price</td>
                                         </tr>
                                         <tr>
-                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[1].legalFees.totalPrice}</td>
+                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[1].legalFees.totalPrice.toFixed(
+                                            2
+                                          )}</td>
                                         </tr>
                                       </table>
                                     </td>
@@ -579,7 +609,9 @@ export const emailTemplate = (
                                         <tr>
                                           <td align="center">
                                             <div style="display:block;background-color:#33338D;border:16px solid #33338D;font-size:15px;color:#FFFFFF;text-decoration:none;">
-                                            <a href="${company[1].contact.website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
+                                            <a href="${
+                                              company[1].contact.website
+                                            }" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
                                           </div>
                                           </td>
                                         </tr>
@@ -609,20 +641,27 @@ export const emailTemplate = (
                                       <table bgcolor="#CFD1EF" valign="top" align="center" border="0" cellpadding="0" cellspacing="0" width="250" style="border-collapse:collapse">
                                         <tr>
                                           <td width="55">
-                                            <img width="55" height="55" style="display:block" border="0" src="${company[2].contact.logo}" alt=""/>
+                                            <img width="55" height="55" style="display:block" border="0" src="${
+                                              company[2].contact.logo
+                                            }" alt=""/>
                                           </td>
                                           <td width="15"></td>
                                           <td>
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse:collapse">
                                               <tr>
-                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[2].contact.shortName}</td>
+                                                <td style="font-size:14px;color:#252525;font-weight:700;">${
+                                                  company[2].contact.shortName
+                                                }</td>
                                               </tr>
                                               <tr>
                                                 <td>
                                                   <table border="0" cellpadding="2" cellspacing="0" width="170" style="border-collapse:collapse">
                                                     <tr>
                                                       <td><img style="display:block" border="0" width="10" height="15" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f71b4d53e9d5de86c924e38_icon_location.png" alt=""/></td>
-                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[2].contact.location}</td>
+                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${
+                                                        company[2].contact
+                                                          .location
+                                                      }</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -671,7 +710,9 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[2].legalFees.legalFee}</td>
+                                                      <td align="center">£ ${company[2].legalFees.legalFee.toFixed(
+                                                        2
+                                                      )}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -705,7 +746,9 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[2].legalFees.disbursement}</td>
+                                                      <td align="center">£ ${company[2].legalFees.disbursement.toFixed(
+                                                        2
+                                                      )}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -735,7 +778,9 @@ export const emailTemplate = (
                                           <td align="center" style="font-size:14px;color:#252525;">Total Price</td>
                                         </tr>
                                         <tr>
-                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[2].legalFees.totalPrice}</td>
+                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[2].legalFees.totalPrice.toFixed(
+                                            2
+                                          )}</td>
                                         </tr>
                                       </table>
                                     </td>
@@ -749,7 +794,9 @@ export const emailTemplate = (
                                         <tr>
                                           <td align="center">
                                             <div style="display:block;background-color:#33338D;border:16px solid #33338D;font-size:15px;color:#FFFFFF;text-decoration:none;">
-                                              <a href="${company[2].contact.website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
+                                              <a href="${
+                                                company[2].contact.website
+                                              }" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
                                             </div>
                                           </td>
                                         </tr>
@@ -777,20 +824,27 @@ export const emailTemplate = (
                                       <table bgcolor="#CFD1EF" valign="top" align="center" border="0" cellpadding="0" cellspacing="0" width="250" style="border-collapse:collapse">
                                         <tr>
                                           <td width="55">
-                                            <img width="55" height="55" style="display:block" border="0" src="${company[3].contact.logo}" alt=""/>
+                                            <img width="55" height="55" style="display:block" border="0" src="${
+                                              company[3].contact.logo
+                                            }" alt=""/>
                                           </td>
                                           <td width="15"></td>
                                           <td>
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse:collapse">
                                               <tr>
-                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[3].contact.shortName}</td>
+                                                <td style="font-size:14px;color:#252525;font-weight:700;">${
+                                                  company[3].contact.shortName
+                                                }</td>
                                               </tr>
                                               <tr>
                                                 <td>
                                                   <table border="0" cellpadding="2" cellspacing="0" width="170" style="border-collapse:collapse">
                                                     <tr>
                                                       <td><img style="display: block" border="0" width="10" height="15" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f71b4d53e9d5de86c924e38_icon_location.png" alt=""/></td>
-                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[3].contact.location}</td>
+                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${
+                                                        company[3].contact
+                                                          .location
+                                                      }</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -839,7 +893,9 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[3].legalFees.legalFee}</td>
+                                                      <td align="center">£ ${company[3].legalFees.legalFee.toFixed(
+                                                        2
+                                                      )}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -873,7 +929,9 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[3].legalFees.disbursement}</td>
+                                                      <td align="center">£ ${company[3].legalFees.disbursement.toFixed(
+                                                        2
+                                                      )}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -903,7 +961,9 @@ export const emailTemplate = (
                                           <td align="center" style="font-size:14px;color:#252525;">Total Price</td>
                                         </tr>
                                         <tr>
-                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[3].legalFees.totalPrice}</td>
+                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[3].legalFees.totalPrice.toFixed(
+                                            2
+                                          )}</td>
                                         </tr>
                                       </table>
                                     </td>
@@ -917,7 +977,9 @@ export const emailTemplate = (
                                         <tr>
                                           <td align="center">
                                             <div style="display:block;background-color:#33338D;border:16px solid #33338D;font-size:15px;color:#FFFFFF;text-decoration:none;">
-                                              <a href="${company[3].contact.website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
+                                              <a href="${
+                                                company[3].contact.website
+                                              }" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
                                             </div>
                                           </td>
                                         </tr>
