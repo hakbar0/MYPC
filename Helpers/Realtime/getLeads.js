@@ -2,8 +2,8 @@ import { ref, onChildAdded, limitToLast, query } from "firebase/database";
 import { whatsApp } from "../Intergrations/whatsApp.js";
 import { assignSolicitors } from "../Firestore/assignSolicitors.js";
 import { buyQuote } from "../Quotes/buyQuote.js";
-import { purchaseTemplate } from "../WhatsAppTemplates/purchaseTemplate.js";
-import { pEmailTemplate } from "../Email/purchase.js";
+import { wPurchTemp } from "../WhatsAppTemplates/purchaseTemplate.js";
+import { pEmailTemp } from "../Email/purchase.js";
 import { companyET } from "../EmailTemplates/companyET.js";
 import { sendMail } from "../Email/sendMail.js";
 
@@ -25,19 +25,24 @@ export const lastP = async (dbRT, dbFS) => {
           });
 
         sols.forEach((sol) => {
+          const {
+            legalFees,
+            contact: { shortName, email },
+          } = sol;
           // send email to company
-          const ET = companyET(client, sol.contact.shortName, sol.legalFees);
-          sendMail(sol, client, ET);
+          const et = companyET(client, shortName, legalFees);
+          const subject = `New Lead - ${client.firstName}, ${client.type}`;
+          sendMail(email, subject, et);
           // sends whatsapp
           if (sol.integrations.whatsapp) {
-            purchaseTemplate(client, sol.legalFees, sol.contact.shortName).then(
-              (template) => {
-                whatsApp(template, sol.whatsApp.numbers);
-              }
-            );
+            wPurchTemp(client, legalFees, shortName).then((template) => {
+              //  whatsApp(template, sol.whatsApp.numbers);
+            });
           }
         });
-        // send email templates
+        // send email template to client
+        //const clET = pEmailTemp(client, sols);
+        // console.log(clET);
       });
     }
   });

@@ -1,4 +1,4 @@
-export const purchaseTemplate = async (cl, lFees, shortName) => {
+export const wPurchTemp = async (cl, lFees, shortName) => {
   const {
     bFirstTimeBuyer,
     bLeaseholdOrFreehold,
