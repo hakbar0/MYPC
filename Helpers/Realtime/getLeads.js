@@ -32,15 +32,16 @@ export const lastP = async (dbRT, dbFS) => {
           // send email to company
           const et = companyET(client, shortName, legalFees);
           const subject = `New Lead - ${client.firstName}, ${client.type}`;
-          sendMail(email, subject, et);
+          //sendMail(email, subject, et);
           // sends whatsapp
           if (sol.integrations.whatsapp) {
             wPurchTemp(client, legalFees, shortName).then((template) => {
-              whatsApp(template, sol.whatsApp.numbers);
+              //whatsApp(template, sol.whatsApp.numbers);
             });
           }
         });
         // send email template to client
+        console.log(sols[0]);
         const clET = pEmailTemp(client, sols);
         const subject = `Purchase Quote - ${client.firstName}, ${client.postcode}`;
         sendMail(client.email, subject, clET);

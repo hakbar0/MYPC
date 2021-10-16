@@ -332,7 +332,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[0].legalFees.legalFee.toFixed(
+                                                      <td align="center">£ ${company[0].legalFees.totalLegalFee.toFixed(
                                                         2
                                                       )}</td>
                                                     </tr>
@@ -525,7 +525,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[1].legalFees.legalFee.toFixed(
+                                                      <td align="center">£ ${company[1].legalFees.totalLegalFee.toFixed(
                                                         2
                                                       )}</td>
                                                     </tr>
@@ -710,7 +710,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[2].legalFees.legalFee.toFixed(
+                                                      <td align="center">£ ${company[2].legalFees.totalLegalFee.toFixed(
                                                         2
                                                       )}</td>
                                                     </tr>
@@ -893,7 +893,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[3].legalFees.legalFee.toFixed(
+                                                      <td align="center">£ ${company[3].legalFees.totalLegalFee.toFixed(
                                                         2
                                                       )}</td>
                                                     </tr>
