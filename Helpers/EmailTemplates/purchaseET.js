@@ -261,20 +261,20 @@ export const emailTemplate = (
                                       <table bgcolor="#CFD1EF" valign="top" align="center" border="0" cellpadding="0" cellspacing="0" width="250" style="border-collapse:collapse">
                                         <tr>
                                           <td width="55">
-                                            <img width="55" height="55" style="display:block" border="0" src="${company[0].image}" alt=""/>
+                                            <img width="55" height="55" style="display:block" border="0" src="${company[0].contact.logo}" alt=""/>
                                           </td>
                                           <td width="15"></td>
                                           <td>
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse:collapse">
                                               <tr>
-                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[0].name}</td>
+                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[0].contact.shortName}</td>
                                               </tr>
                                               <tr>
                                                 <td>
                                                   <table border="0" cellpadding="2" cellspacing="0" width="170" style="border-collapse:collapse">
                                                     <tr>
                                                       <td><img style="display:block" border="0" width="10" height="15" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f71b4d53e9d5de86c924e38_icon_location.png" alt=""/></td>
-                                                      <td style="font-size: 12px;color:#33348E;white-space:nowrap;">${company[0].location}</td>
+                                                      <td style="font-size: 12px;color:#33348E;white-space:nowrap;">${company[0].contact.location}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -323,7 +323,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[0].legalFee}</td>
+                                                      <td align="center">£ ${company[0].legalFees.legalFee}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -357,7 +357,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[0].disbursement}</td>
+                                                      <td align="center">£ ${company[0].legalFees.disbursement}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -387,7 +387,7 @@ export const emailTemplate = (
                                           <td align="center" style="font-size:14px;color:#252525;">Total Price</td>
                                         </tr>
                                         <tr>
-                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[0].totalPrice}</td>
+                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[0].legalFees.totalPrice}</td>
                                         </tr>
                                       </table>
                                     </td>
@@ -401,7 +401,7 @@ export const emailTemplate = (
                                         <tr>
                                           <td align="center">
                                             <div style="display:block;background-color:#33338D;border:16px solid #33338D;font-size:15px;color:#FFFFFF;text-decoration:none;">
-                                              <a href="${company[0].website}" style="font-size:15px; color:#FFFFFF; text-decoration:none;">Instruct Solicitor Now</a>
+                                              <a href="${company[0].contact.website}" style="font-size:15px; color:#FFFFFF; text-decoration:none;">Instruct Solicitor Now</a>
                                             </div>
                                           </td>
                                         </tr>
@@ -439,20 +439,20 @@ export const emailTemplate = (
                                       <table bgcolor="#CFD1EF" valign="top" align="center" border="0" cellpadding="0" cellspacing="0" width="250" style="border-collapse:collapse">
                                         <tr>
                                           <td width="55">
-                                            <img width="55" height="55" style="display:block" border="0" src="${company[1].image}" alt=""/>
+                                            <img width="55" height="55" style="display:block" border="0" src="${company[1].contact.logo}" alt=""/>
                                           </td>
                                           <td width="15"></td>
                                           <td>
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse:collapse">
                                               <tr>
-                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[1].name}</td>
+                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[1].contact.shortName}</td>
                                               </tr>
                                               <tr>
                                                 <td>
                                                   <table border="0" cellpadding="2" cellspacing="0" width="170" style="border-collapse:collapse">
                                                     <tr>
                                                       <td><img style="display:block" border="0" width="10" height="15" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f71b4d53e9d5de86c924e38_icon_location.png" alt=""/></td>
-                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[1].location}</td>
+                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[1].contact.location}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -501,7 +501,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[1].legalFee}</td>
+                                                      <td align="center">£ ${company[1].legalFees.legalFee}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -535,7 +535,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[1].disbursement}</td>
+                                                      <td align="center">£ ${company[1].legalFees.disbursement}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -565,7 +565,7 @@ export const emailTemplate = (
                                           <td align="center" style="font-size:14px;color:#252525;">Total Price</td>
                                         </tr>
                                         <tr>
-                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[1].totalPrice}</td>
+                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[1].legalFees.totalPrice}</td>
                                         </tr>
                                       </table>
                                     </td>
@@ -579,7 +579,7 @@ export const emailTemplate = (
                                         <tr>
                                           <td align="center">
                                             <div style="display:block;background-color:#33338D;border:16px solid #33338D;font-size:15px;color:#FFFFFF;text-decoration:none;">
-                                            <a href="${company[1].website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
+                                            <a href="${company[1].contact.website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
                                           </div>
                                           </td>
                                         </tr>
@@ -609,20 +609,20 @@ export const emailTemplate = (
                                       <table bgcolor="#CFD1EF" valign="top" align="center" border="0" cellpadding="0" cellspacing="0" width="250" style="border-collapse:collapse">
                                         <tr>
                                           <td width="55">
-                                            <img width="55" height="55" style="display:block" border="0" src="${company[2].image}" alt=""/>
+                                            <img width="55" height="55" style="display:block" border="0" src="${company[2].contact.logo}" alt=""/>
                                           </td>
                                           <td width="15"></td>
                                           <td>
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse:collapse">
                                               <tr>
-                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[2].name}</td>
+                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[2].contact.shortName}</td>
                                               </tr>
                                               <tr>
                                                 <td>
                                                   <table border="0" cellpadding="2" cellspacing="0" width="170" style="border-collapse:collapse">
                                                     <tr>
                                                       <td><img style="display:block" border="0" width="10" height="15" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f71b4d53e9d5de86c924e38_icon_location.png" alt=""/></td>
-                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[2].location}</td>
+                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[2].contact.location}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -671,7 +671,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[2].legalFee}</td>
+                                                      <td align="center">£ ${company[2].legalFees.legalFee}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -705,7 +705,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[2].disbursement}</td>
+                                                      <td align="center">£ ${company[2].legalFees.disbursement}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -735,7 +735,7 @@ export const emailTemplate = (
                                           <td align="center" style="font-size:14px;color:#252525;">Total Price</td>
                                         </tr>
                                         <tr>
-                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[2].totalPrice}</td>
+                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[2].legalFees.totalPrice}</td>
                                         </tr>
                                       </table>
                                     </td>
@@ -749,7 +749,7 @@ export const emailTemplate = (
                                         <tr>
                                           <td align="center">
                                             <div style="display:block;background-color:#33338D;border:16px solid #33338D;font-size:15px;color:#FFFFFF;text-decoration:none;">
-                                              <a href="${company[2].website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
+                                              <a href="${company[2].contact.website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
                                             </div>
                                           </td>
                                         </tr>
@@ -777,20 +777,20 @@ export const emailTemplate = (
                                       <table bgcolor="#CFD1EF" valign="top" align="center" border="0" cellpadding="0" cellspacing="0" width="250" style="border-collapse:collapse">
                                         <tr>
                                           <td width="55">
-                                            <img width="55" height="55" style="display:block" border="0" src="${company[3].image}" alt=""/>
+                                            <img width="55" height="55" style="display:block" border="0" src="${company[3].contact.logo}" alt=""/>
                                           </td>
                                           <td width="15"></td>
                                           <td>
                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse:collapse">
                                               <tr>
-                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[3].name}</td>
+                                                <td style="font-size:14px;color:#252525;font-weight:700;">${company[3].contact.shortName}</td>
                                               </tr>
                                               <tr>
                                                 <td>
                                                   <table border="0" cellpadding="2" cellspacing="0" width="170" style="border-collapse:collapse">
                                                     <tr>
                                                       <td><img style="display: block" border="0" width="10" height="15" src="https://uploads-ssl.webflow.com/5f47b76ee28c574aee330915/5f71b4d53e9d5de86c924e38_icon_location.png" alt=""/></td>
-                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[3].location}</td>
+                                                      <td style="font-size:12px;color:#33348E;white-space:nowrap;">${company[3].contact.location}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -839,7 +839,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[3].legalFee}</td>
+                                                      <td align="center">£ ${company[3].legalFees.legalFee}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -873,7 +873,7 @@ export const emailTemplate = (
                                                 <td width="90">
                                                   <table bgcolor="#FFFFFF" align="center" border="0" cellpadding="6" cellspacing="0" width="90" style="border-collapse:collapse">
                                                     <tr>
-                                                      <td align="center">£ ${company[3].disbursement}</td>
+                                                      <td align="center">£ ${company[3].legalFees.disbursement}</td>
                                                     </tr>
                                                   </table>
                                                 </td>
@@ -903,7 +903,7 @@ export const emailTemplate = (
                                           <td align="center" style="font-size:14px;color:#252525;">Total Price</td>
                                         </tr>
                                         <tr>
-                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[3].totalPrice}</td>
+                                          <td align="center" style="font-size:38px;font-weight:700;color:#EC008C;">£${company[3].legalFees.totalPrice}</td>
                                         </tr>
                                       </table>
                                     </td>
@@ -917,7 +917,7 @@ export const emailTemplate = (
                                         <tr>
                                           <td align="center">
                                             <div style="display:block;background-color:#33338D;border:16px solid #33338D;font-size:15px;color:#FFFFFF;text-decoration:none;">
-                                              <a href="${company[3].website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
+                                              <a href="${company[3].contact.website}" style="font-size:15px;color:#FFFFFF;text-decoration:none;">Instruct Solicitor Now</a>
                                             </div>
                                           </td>
                                         </tr>

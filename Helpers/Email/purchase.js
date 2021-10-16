@@ -16,7 +16,7 @@ export const pEmailTemp = (client, company) => {
   const buyingPrice = bPrice
     .toString()
     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  const lowPrice = company[0].totalPrice;
+  const lowPrice = company[0].legalFees.totalPrice;
 
   return emailTemplate(
     lowPrice,
