@@ -6,12 +6,14 @@ import { wPurchTemp } from "../WhatsAppTemplates/purchaseTemplate.js";
 import { pEmailTemp } from "../Email/purchase.js";
 import { companyET } from "../EmailTemplates/companyET.js";
 import { sendMail } from "../Email/sendMail.js";
+import { updateRTCompany } from "./queries.js";
 
 //checks for purchase
 export const lastP = async (dbRT, dbFS) => {
   const pRef = query(ref(dbRT, "purchase/"), limitToLast(1));
   onChildAdded(pRef, (snap) => {
     const client = snap.val();
+    const key = snap.key;
     if (client.sent !== true) {
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
@@ -50,6 +52,8 @@ export const lastP = async (dbRT, dbFS) => {
         /////////////////////////////////////
       });
     }
+    //removes flag
+    updateRTCompany(dbRT, key, client, "purchase");
   });
 };
 
