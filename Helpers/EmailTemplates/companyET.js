@@ -121,8 +121,8 @@ export const companyET = (clientObj, company, lFees) => {
   }
 
   if (clientObj.type === "Sale and Purchase") {
-    var saleLegalFee = lFees.sellLegalFees;
-    var purchaseLegalFee = lFees.purchaseLegalFees;
+    var saleLegalFee = lFees.sLegalFees;
+    var purchaseLegalFee = lFees.pLegalFees;
 
     if (clientObj.bPrice)
       html += `<strong>Purchase Price:</strong> £${clientObj.bPrice

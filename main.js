@@ -13,8 +13,8 @@ const dbRT = initRTDB(app);
 await signInToFirebase();
 
 //await lastP(dbRT, dbFS);
-await lastS(dbRT, dbFS);
-//await lastSP(dbRT);
+//await lastS(dbRT, dbFS);
+await lastSP(dbRT, dbFS);
 //await lastR(dbRT);
 
 /*let postcode = "KY9 1JY";
