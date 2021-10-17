@@ -238,7 +238,7 @@ export const companyET = (clientObj, company, lFees) => {
     html += `<br><strong>Combined Total:</strong> £${round(
       parseFloat(saleLegalFee.totalPrice) +
         parseFloat(purchaseLegalFee.totalPrice)
-    )}<br>`;
+    ).toFixed(2)}<br>`;
   }
 
   if (clientObj.type === "Remortgage") {

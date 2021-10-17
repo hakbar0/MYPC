@@ -9,6 +9,7 @@ import { wSaleTemp } from "../WhatsAppTemplates/saleTemplate.js";
 import { wPandSTemp } from "../WhatsAppTemplates/saleAndPurchaseTemplate.js";
 import { pEmailTemp } from "../Email/purchase.js";
 import { sEmailTemp } from "../Email/sale.js";
+import { sandpEmailTemp } from "../Email/saleAndPurchase.js";
 import { companyET } from "../EmailTemplates/companyET.js";
 import { sendMail } from "../Email/sendMail.js";
 import { updateRTCompany } from "./queries.js";
@@ -124,7 +125,6 @@ export const lastSP = async (dbRT, dbFS) => {
         sols
           .map((sol) => {
             sol.legalFees = saleAndPurchaseQuote(sol, client);
-            console.log(sol.legalFees);
           })
           .sort((a, b) => {
             return a.legalFees.totalPrice - b.legalFees.totalPrice;
@@ -150,14 +150,14 @@ export const lastSP = async (dbRT, dbFS) => {
           }
         });
         // send email template to client
-        //  const clET = sEmailTemp(client, sols);
-        // const subject = `Sale Quote - ${client.firstName}, ${client.postcode}`;
-        //  sendMail(client.email, subject, clET);
+        const clET = sandpEmailTemp(client, sols);
+        const subject = `Sale & Purchase Quote - ${client.firstName}, ${client.postcode}`;
+        sendMail(client.email, subject, clET);
         /////////////////////////////////////
       });
     }
     //removes flag
-    //  updateRTCompany(dbRT, key, client, "sale");
+    updateRTCompany(dbRT, key, client, "saleAndPurchase");
   });
 };
 
