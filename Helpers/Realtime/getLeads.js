@@ -6,6 +6,7 @@ import { saleQuote } from "../Quotes/saleQuote.js";
 import { wPurchTemp } from "../WhatsAppTemplates/purchaseTemplate.js";
 import { wSaleTemp } from "../WhatsAppTemplates/saleTemplate.js";
 import { pEmailTemp } from "../Email/purchase.js";
+import { sEmailTemp } from "../Email/sale.js";
 import { companyET } from "../EmailTemplates/companyET.js";
 import { sendMail } from "../Email/sendMail.js";
 import { updateRTCompany } from "./queries.js";
@@ -97,14 +98,14 @@ export const lastS = async (dbRT, dbFS) => {
           }
         });
         // send email template to client
-        // const clET = pEmailTemp(client, sols);
-        // const subject = `Purchase Quote - ${client.firstName}, ${client.postcode}`;
-        //  sendMail(client.email, subject, clET);
+        const clET = sEmailTemp(client, sols);
+        const subject = `Sale Quote - ${client.firstName}, ${client.postcode}`;
+        sendMail(client.email, subject, clET);
         /////////////////////////////////////
       });
     }
     //removes flag
-    //updateRTCompany(dbRT, key, client, "sale");
+    updateRTCompany(dbRT, key, client, "sale");
   });
 };
 
