@@ -12,8 +12,8 @@ const dbFS = initFS(app);
 const dbRT = initRTDB(app);
 await signInToFirebase();
 
-await lastP(dbRT, dbFS);
-//await lastS(dbRT);
+//await lastP(dbRT, dbFS);
+await lastS(dbRT, dbFS);
 //await lastSP(dbRT);
 //await lastR(dbRT);
 

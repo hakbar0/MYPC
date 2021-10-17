@@ -79,7 +79,7 @@ export const buyQuote = (comp, cl) => {
   return legalFees;
 };
 
-function setLegalFees(price, buyingPrice) {
+const setLegalFees = (price, buyingPrice) => {
   if (buyingPrice <= 100000) {
     return Number(price["100000"]);
   } else if (buyingPrice <= 200000) {
@@ -95,9 +95,8 @@ function setLegalFees(price, buyingPrice) {
   } else {
     return Number(price["1000000"]);
   }
-}
-
-function setHMLRFees(HMLR, buyingPrice) {
+};
+const setHMLRFees = (HMLR, buyingPrice) => {
   if (buyingPrice <= 80000) {
     return Number(HMLR["80000"]);
   } else if (buyingPrice <= 100000) {
@@ -111,4 +110,4 @@ function setHMLRFees(HMLR, buyingPrice) {
   } else {
     return Number(HMLR["other"]);
   }
-}
+};
