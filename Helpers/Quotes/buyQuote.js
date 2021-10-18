@@ -108,6 +108,6 @@ const setHMLRFees = (HMLR, buyingPrice) => {
   } else if (buyingPrice <= 1000000) {
     return Number(HMLR["1000000"]);
   } else {
-    return Number(HMLR["other"]);
+    return Number(HMLR["1000000"]);
   }
 };
