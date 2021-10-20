@@ -24,6 +24,8 @@ export const lastP = async (dbRT, dbFS) => {
     const client = snap.val();
     const key = snap.key;
     if (client.sent !== true) {
+      //removes flag
+      updateRTCompany(dbRT, key, client, "purchase");
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
         // sort by legal fees
@@ -61,8 +63,6 @@ export const lastP = async (dbRT, dbFS) => {
         /////////////////////////////////////
       });
     }
-    //removes flag
-    updateRTCompany(dbRT, key, client, "purchase");
   });
 };
 
@@ -73,6 +73,8 @@ export const lastS = async (dbRT, dbFS) => {
     const client = snap.val();
     const key = snap.key;
     if (client.sent !== true) {
+      //removes flag
+      updateRTCompany(dbRT, key, client, "sale");
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
         // sort by legal fees
@@ -110,8 +112,6 @@ export const lastS = async (dbRT, dbFS) => {
         /////////////////////////////////////
       });
     }
-    //removes flag
-    updateRTCompany(dbRT, key, client, "sale");
   });
 };
 
@@ -122,6 +122,8 @@ export const lastSP = async (dbRT, dbFS) => {
     const client = snap.val();
     const key = snap.key;
     if (client.sent !== true) {
+      //removes flag
+      updateRTCompany(dbRT, key, client, "saleAndPurchase");
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
         // sort by legal fees
@@ -159,8 +161,6 @@ export const lastSP = async (dbRT, dbFS) => {
         /////////////////////////////////////
       });
     }
-    //removes flag
-    updateRTCompany(dbRT, key, client, "saleAndPurchase");
   });
 };
 
@@ -171,6 +171,8 @@ export const lastR = async (dbRT, dbFS) => {
     const client = snap.val();
     const key = snap.key;
     if (client.sent !== true) {
+      //removes flag
+      updateRTCompany(dbRT, key, client, "remortgage");
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
         // sort by legal fees
@@ -209,7 +211,5 @@ export const lastR = async (dbRT, dbFS) => {
         /////////////////////////////////////
       });
     }
-    //removes flag
-    updateRTCompany(dbRT, key, client, "remortgage");
   });
 };

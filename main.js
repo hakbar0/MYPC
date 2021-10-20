@@ -12,16 +12,7 @@ const dbFS = initFS(app);
 const dbRT = initRTDB(app);
 await signInToFirebase();
 
-//await lastP(dbRT, dbFS);
-//await lastS(dbRT, dbFS);
-//await lastSP(dbRT, dbFS);
+await lastP(dbRT, dbFS);
+await lastS(dbRT, dbFS);
+await lastSP(dbRT, dbFS);
 await lastR(dbRT, dbFS);
-
-/*let postcode = "KY9 1JY";
-postcode.toUpperCase().replace(/[^\w\s]/gi, "");
-
-await assignSolicitors("test"); */
-
-//await pushCompany(dbFS, "mysolicitor");
-
-//await updateCompanyCount(dbFS, "mysolicitor");
