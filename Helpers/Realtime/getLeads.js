@@ -15,7 +15,7 @@ import { sandpEmailTemp } from "../Email/saleAndPurchase.js";
 import { rEmailTemp } from "../Email/remortgage.js";
 import { companyET } from "../EmailTemplates/companyET.js";
 import { sendMail } from "../Email/sendMail.js";
-import { updateRTCompany } from "./queries.js";
+import { updateRT } from "./queries.js";
 
 //checks for purchase
 export const lastP = async (dbRT, dbFS) => {
@@ -25,7 +25,7 @@ export const lastP = async (dbRT, dbFS) => {
     const key = snap.key;
     if (client.sent !== true) {
       //removes flag
-      updateRTCompany(dbRT, key, client, "purchase");
+      updateRT(dbRT, key, client, "purchase");
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
         // sort by legal fees
@@ -74,7 +74,7 @@ export const lastS = async (dbRT, dbFS) => {
     const key = snap.key;
     if (client.sent !== true) {
       //removes flag
-      updateRTCompany(dbRT, key, client, "sale");
+      updateRT(dbRT, key, client, "sale");
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
         // sort by legal fees
@@ -123,7 +123,7 @@ export const lastSP = async (dbRT, dbFS) => {
     const key = snap.key;
     if (client.sent !== true) {
       //removes flag
-      updateRTCompany(dbRT, key, client, "saleAndPurchase");
+      updateRT(dbRT, key, client, "saleAndPurchase");
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
         // sort by legal fees
@@ -172,7 +172,7 @@ export const lastR = async (dbRT, dbFS) => {
     const key = snap.key;
     if (client.sent !== true) {
       //removes flag
-      updateRTCompany(dbRT, key, client, "remortgage");
+      updateRT(dbRT, key, client, "remortgage");
       assignSolicitors(client, dbFS).then((sols) => {
         //sets legal fees
         // sort by legal fees
