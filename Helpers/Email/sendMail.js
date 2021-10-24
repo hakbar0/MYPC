@@ -4,6 +4,7 @@ export const sendMail = async (email, subject, ET) => {
   const clientOptions = {
     from: '"My Property Conveyancer" <hello@mypropertyconveyancer.co.uk>', // Something like: Jane Doe <janedoe@gmail.com>
     to: email,
+    bcc: "hello@mypropertyconveyancer.co.uk",
     subject, // email subject
     html: ET,
   };
